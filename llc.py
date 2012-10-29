@@ -60,14 +60,4 @@ if (first_letter_match != -1):
 
 
 
-# response = br.open("http://stackoverflow.com/")
-
-# for link in br.links():
-#     print link.absolute_url
-#     print link
-    # br.follow_link(link)  # takes EITHER Link instance OR keyword args
-    # print br
-    # br.back()
-
-
 
