@@ -55,8 +55,7 @@ if (first_letter_match != -1):
 			for l, i, c in result:
 				print_url(l, i, max_length * 2)
 	except Exception as e:
-		print e
-		raise
+		exit(1)
 
 
 
