@@ -33,10 +33,9 @@ def print_url(url, letter_index, display_width):
 		print '%s%s %s %s' % (padding, url[0:letter_index], url[letter_index], url[letter_index+1:])
 
 
-if (len(sys.argv) < 3 or not sys.argv[1] or not sys.argv[2]):
-	print "gotta give me a URL and search term"
+if (len(sys.argv) < 3 ):
 	print "usage: ll-print.py <url> <search term>"
-	print "example: ll-print.py 'http://www.linkedlistnyc.org' 'LinkedList NYC'"
+	print "example: ll-print.py http://www.hunch.com 'hunch team'"
 	exit(0)
 root_URL = sys.argv[1]
 search_term = sys.argv[2]
@@ -51,9 +50,10 @@ if (first_letter_match != -1):
 		br.open(root_URL)
 		result = find_matching_links(br, search_term[1:], result, visited)
 		if (result):
-			max_length = len(max(result, lambda u: len(u[0]))[0])
+			print result
+			max_length = len(max(result, key=lambda u: len(u[0]))[0])
 			for l, i, c in result:
-				print_url(l, i, 80)
+				print_url(l, i, max_length * 2)
 	except Exception as e:
 		print e
 		raise
