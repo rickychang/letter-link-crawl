@@ -36,10 +36,11 @@ def find_matching_links(br, target_word, result, visited):
 						link_URL = urlnorm.norm(link.absolute_url)
 						if (link_URL not in visited):
 							br.open(link_URL)
-							visited.add(link_URL)
+							new_visited = visited.copy()
+							new_visited.add(link_URL)
 							print "visiting: " + urlnorm.norm(br.geturl())
-							visited.add(urlnorm.norm(br.geturl()))
-							child_result = find_matching_links(br, target_word[1:], new_result, visited)
+							new_visited.add(urlnorm.norm(br.geturl()))
+							child_result = find_matching_links(br, target_word[1:], new_result, new_visited)
 							if (child_result):
 								return child_result
  					except Exception, e:
