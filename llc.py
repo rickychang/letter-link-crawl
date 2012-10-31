@@ -29,7 +29,7 @@ def find_matching_links(br, target_word, result, visited):
 			for m in matches:
 				try:
 					# if (urlnorm.norm(m[0].absolute_url) not in visited):
-					if (m[0].absolute_url not in visited):
+					if (urlnorm.norm(m[0].absolute_url) not in visited):
 						visited.add(urlnorm.norm(m[0].absolute_url))
 						print m[0].absolute_url
 						br.follow_link(m[0])
@@ -40,6 +40,7 @@ def find_matching_links(br, target_word, result, visited):
 							br.back()
 				except Exception as e:
 					pass
+	print "backtracking"
 	return []
 
 
