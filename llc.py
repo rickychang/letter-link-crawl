@@ -38,7 +38,7 @@ def find_matching_links(br, target_word, result, visited):
 							br.open(link_URL)
 							new_visited = visited.copy()
 							new_visited.add(link_URL)
-							print "visiting: " + urlnorm.norm(br.geturl())
+							# print "visiting: " + urlnorm.norm(br.geturl())
 							new_visited.add(urlnorm.norm(br.geturl()))
 							child_result = find_matching_links(br, target_word[1:], new_result, new_visited)
 							if (child_result):
@@ -66,7 +66,7 @@ def main():
 			br._factory.is_html = True
 			result = []
 			br.open(root_URL)
-			print "visiting: " + urlnorm.norm(br.geturl())
+			# print "visiting: " + urlnorm.norm(br.geturl())
 			visited = set([urlnorm.norm(br.geturl()), urlnorm.norm(root_URL)])
 			result = find_matching_links(br, search_term, result, visited)
 			if (result):
