@@ -44,7 +44,6 @@ def find_matching_links(br, target_word, result, visited):
 								return child_result
  					except Exception, e:
 						continue
-	# print "backtracking"
 	return []
 
 
