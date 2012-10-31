@@ -50,8 +50,8 @@ def find_matching_links(br, target_word, result, visited):
 
 def main():
 	if (len(sys.argv) < 3 ):
-		print "usage: ll-print.py <url> <search term>"
-		print "example: ll-print.py http://www.hunch.com 'hunch team'"
+		print "usage: python ll-print.py <url> <search term>"
+		print "example: python ll-print.py http://www.hunch.com 'hunch team'"
 		exit(0)
 	root_URL = sys.argv[1]
 	search_term = sys.argv[2]
